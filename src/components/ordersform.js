@@ -21,11 +21,11 @@ export default function OrdersForm(props) {
   }
 
   return (
-    <form className='pizza-form' onSubmit={onSubmit}>
+    <form id='pizza-form' onSubmit={onSubmit}>
       <div className='form-group submit'>
         <h2>Add a Pizza</h2>
 
-        <button disabled={disabled}>submit</button>
+        <button disabled={disabled} id='order-button'>submit your order</button>
 
         <div className='errors'>
           <div>{errors.name}</div>
@@ -38,17 +38,17 @@ export default function OrdersForm(props) {
       <div className='form-group inputs'>
         <h4>General information</h4>
 
-        <label>Name&nbsp;
-          <input
+        <label>Name
+          <input id='name-input'
             value={values.name}
             onChange={onChange}
-            name='name-input'
+            name='name'
             type='text'
           />
         </label>
 
         <label>Special Instructions
-          <input
+          <input id='special-text'
             value={values.specialInstructions}
             onChange={onChange}
             name='specialInstructions'

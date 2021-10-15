@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import Orders from "./components/orders";
 import OrdersForm from "./components/ordersform";
 import schema from './validation/formSchema';
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 const initialFormValues = {
   ///// TEXT INPUTS /////
@@ -37,17 +38,6 @@ export default function App() {
   const [formValues, setFormValues] = useState(initialFormValues) // object
   const [formErrors, setFormErrors] = useState(initialFormErrors) // object
   const [disabled, setDisabled] = useState(initialDisabled)       // boolean
-
-
-  const getOrders = () => {
-  
-    axios.get(`https://reqres.in/api/orders`)
-      .then(res => {
-        setOrders([res.data, ...orders]);
-      }).catch(err => {
-        console.error(err);
-      })
-  }
 
   const postNewOrder = newOrder => {
   
@@ -92,18 +82,20 @@ export default function App() {
   }
 
   useEffect(() => {
-    getOrders()
-  }, [])
-
-  useEffect(() => {
 
     schema.isValid(formValues).then(valid => setDisabled(!valid))
   }, [formValues])
 
   return (
-    <div className='container'>
-      <header><h1>Lambda's Pizza School</h1></header>
-
+    <div>
+    <BrowserRouter>
+    
+    <Route exact path='/'>
+      <header><h1>Lambda Eats</h1></header>
+      <Link id='order-pizza' to='/pizza'>Pizza order</Link>
+    </Route>
+    <Route path='/pizza'>
+      
       <OrdersForm
         values={formValues}
         change={inputChange}
@@ -111,6 +103,7 @@ export default function App() {
         disabled={disabled}
         errors={formErrors}
       />
+      
       <h2>List of orders</h2>
       {
         orders.map(order => {
@@ -119,7 +112,10 @@ export default function App() {
           )
         })
       }
-    </div>
+      </Route>
+
+    </BrowserRouter>
+  </div>
   )
 
 }
