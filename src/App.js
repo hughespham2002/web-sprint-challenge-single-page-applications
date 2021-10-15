@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import Orders from "./components/orders";
 import OrdersForm from "./components/ordersform";
 import schema from './validation/formSchema';
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 const initialFormValues = {
   ///// TEXT INPUTS /////
@@ -89,7 +89,6 @@ export default function App() {
   return (
     <div>
  
-    
     <Route exact path='/'>
       <header><h1>Lambda Eats</h1></header>
       <Link id='order-pizza' to='/pizza'>Pizza order</Link>
@@ -113,7 +112,6 @@ export default function App() {
         })
       }
       </Route>
-
 
   </div>
   )
