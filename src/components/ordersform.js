@@ -47,15 +47,6 @@ export default function OrdersForm(props) {
           />
         </label>
 
-        <label>Special Instructions
-          <input id='special-text'
-            value={values.specialInstructions}
-            onChange={onChange}
-            name='specialInstructions'
-            type='text'
-          />
-        </label>
-
         {/* ////////// DROPDOWN ////////// */}
         <label>Size
           <select id='size-dropdown'
@@ -161,6 +152,16 @@ export default function OrdersForm(props) {
             checked={values.eggplant}
           />
         </label>eggplant
+      </div>
+      <div className='optional'>
+        <label>Special Instructions
+          <input id='special-text'
+            value={values.specialInstructions}
+            onChange={onChange}
+            name='specialInstructions'
+            type='text'
+          />
+        </label>
       </div>
     </form>
   )

@@ -91,7 +91,7 @@ export default function App() {
  
     <Route exact path='/'>
       <header><h1>Lambda Eats</h1></header>
-      <Link id='order-pizza' to='/pizza'>Pizza order</Link>
+      <Link id='order-pizza' to='/pizza'>Make Your Pizza</Link>
     </Route>
     <Route path='/pizza'>
       

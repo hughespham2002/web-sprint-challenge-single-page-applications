@@ -7,8 +7,8 @@ describe('Pizza Order Application', () => {
     const sizeDropdown = () => cy.get('select')
     const toppingBoxes = () => cy.get('[type="checkbox"]')
     const specialInstructions = () => cy.get('input[name=specialInstructions]')
-    const submitButton = () => cy.get('button[id="order-button"]')
     const sauce = () => cy.get('[type="radio"]')
+    const submitButton = () => cy.get('button[id="order-button"]')
 
     it('Sanity test', () => {
         expect(1 + 2).to.equal(3);
@@ -22,16 +22,16 @@ describe('Pizza Order Application', () => {
         sizeDropdown().should('exist')
         toppingBoxes().should('exist')
         specialInstructions().should('exist')
-        submitButton().should('exist')
         sauce().should('exist')
+        submitButton().should('exist')
     })
 
-    describe('Inputs can be filled and submitted?', () => {
+    describe('Can all inputs can be filled and submitted?', () => {
         it('Inputs with interaction?', () => {
             nameInput()
                 .should('have.value', '')
-                .type('Hughes')
-                .should('have.value', 'Hughes')
+                .type('Pizza Man')
+                .should('have.value', 'Pizza Man')
             sizeDropdown()
                 .should('have.value', '')
                 .select('Small')
@@ -42,13 +42,13 @@ describe('Pizza Order Application', () => {
                 .check()
             specialInstructions()
                 .should('have.value', '')
-                .type('Extra crispy crust')
-                .should('have.value', 'Extra crispy crust')
+                .type('Extra thiccc crust')
+                .should('have.value', 'Extra thiccc crust')
             sauce()
-                .check('BBQ')
+                .check('Tomato')
         })
 
-        it('Add to Order button works?', () => {
+        it('Does submit your order button works?', () => {
             nameInput()
                 .type('Hughes')
             sizeDropdown()
