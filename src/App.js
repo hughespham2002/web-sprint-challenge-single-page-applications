@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from 'yup';
 import Orders from "./components/orders";
@@ -113,7 +113,7 @@ export default function App() {
       />
       <h2>List of orders</h2>
       {
-        users.map(order => {
+        orders.map(order => {
           return (
             <Orders key={order.id} details={order} />
           )

@@ -21,7 +21,7 @@ export default function OrdersForm(props) {
   }
 
   return (
-    <form className='form container' onSubmit={onSubmit}>
+    <form className='pizza-form' onSubmit={onSubmit}>
       <div className='form-group submit'>
         <h2>Add a Pizza</h2>
 
@@ -42,7 +42,7 @@ export default function OrdersForm(props) {
           <input
             value={values.name}
             onChange={onChange}
-            name='name'
+            name='name-input'
             type='text'
           />
         </label>
@@ -58,10 +58,10 @@ export default function OrdersForm(props) {
 
         {/* ////////// DROPDOWN ////////// */}
         <label>Size
-          <select
+          <select id='size-dropdown'
             onChange={onChange}
-            value={values.role}
-            name='role'
+            value={values.size}
+            name='size'
           >
             <option value=''>- Select a Size -</option>
             <option value='S'>Small</option>
@@ -72,7 +72,7 @@ export default function OrdersForm(props) {
         </label>
 
         {/* ////////// RADIO BUTTONS ////////// */}
-        <label>Tomato Sauce
+        <label>
           <input
             type="radio"
             name="sauce"
@@ -80,9 +80,9 @@ export default function OrdersForm(props) {
             onChange={onChange}
             checked={values.sauce === "Tomato"}
           />
-        </label>
+        </label>Tomato Sauce
 
-        <label>BBQ
+        <label>
           <input
             type="radio"
             name="sauce"
@@ -90,9 +90,9 @@ export default function OrdersForm(props) {
             onChange={onChange}
             checked={values.sauce === "BBQ"}
           />
-        </label>
+        </label>BBQ
 
-        <label>Garlic Ranch
+        <label>
           <input
             type="radio"
             name="sauce"
@@ -100,9 +100,9 @@ export default function OrdersForm(props) {
             onChange={onChange}
             checked={values.sauce === "GR"}
           />
-        </label>
+        </label>Garlic Ranch
 
-        <label>Spinach Alfredo
+        <label>
           <input
             type="radio"
             name="sauce"
@@ -110,57 +110,57 @@ export default function OrdersForm(props) {
             onChange={onChange}
             checked={values.sauce === "SA"}
           />
-        </label>
+        </label>Spinach Alfredo
       </div>
 
       <div className='form-group checkboxes'>
         <h4>Toppings</h4>
 
         {/* ////////// CHECKBOXES ////////// */}
-        <label>pinapple
+        <label>
           <input
             type="checkbox"
             name="pinapple"
             onChange={onChange}
             checked={values.pinapple}
           />
-        </label>
+        </label>pinapple
 
-        <label>anchovies
+        <label>
           <input
             type="checkbox"
             name="anchovies"
             onChange={onChange}
             checked={values.anchovies}
           />
-        </label>
+        </label>anchovies
 
-        <label>broccoli
+        <label>
           <input
             type="checkbox"
             name="broccoli"
             onChange={onChange}
             checked={values.broccoli}
           />
-        </label>
+        </label>broccoli
 
-        <label>artichokes
+        <label>
           <input
             type="checkbox"
             name="artichokes"
             onChange={onChange}
             checked={values.artichokes}
           />
-        </label>
+        </label>artichokes
 
-        <label>eggplant
+        <label>
           <input
             type="checkbox"
             name="eggplant"
             onChange={onChange}
             checked={values.eggplant}
           />
-        </label>
+        </label>eggplant
       </div>
     </form>
   )
