@@ -1,4 +1,9 @@
 import React from "react";
+import axios from "axios";
+import * as yup from 'yup';
+import Orders from "./components/orders";
+import OrdersForm from "./components/ordersform";
+import schema from './validation/formSchema';
 
 const initialFormValues = {
   ///// TEXT INPUTS /////
@@ -78,7 +83,7 @@ export default function App() {
       size: formValues.size.trim(),
       sauce: formValues.sauce.trim(),
       specialInstructions: formValues.specialInstructions.trim(),
-      toppings: ['pinapple', 'anchovies', 'broccoli', 'artichokes', 'eggplant'].filter(hobby => !!formValues[hobby])
+      toppings: ['pinapple', 'anchovies', 'broccoli', 'artichokes', 'eggplant'].filter(topping => !!formValues[topping])
     }
 
     console.log(newOrder);
@@ -99,7 +104,7 @@ export default function App() {
     <div className='container'>
       <header><h1>Lambda's Pizza School</h1></header>
 
-      <OrderForm
+      <OrdersForm
         values={formValues}
         change={inputChange}
         submit={formSubmit}
@@ -110,7 +115,7 @@ export default function App() {
       {
         users.map(order => {
           return (
-            <Order key={order.id} details={order} />
+            <Orders key={order.id} details={order} />
           )
         })
       }
